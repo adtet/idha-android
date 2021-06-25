@@ -13,7 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class data_info extends AppCompatActivity {
     public String url = MainActivity.url;
-    TextView txtsuhu,txtkelembapan,txthujan,txtcahaya;
+    TextView txtsuhu,txtkelembapan,txthujan,txtcahaya,tgl1,tgl2,tgl3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +22,9 @@ public class data_info extends AppCompatActivity {
         txtkelembapan = findViewById(R.id.txtkelembapaninfo);
         txthujan = findViewById(R.id.txthujaninfo);
         txtcahaya = findViewById(R.id.txtcahayainfo);
+        tgl1 = findViewById(R.id.txttanggalnode1);
+        tgl2 = findViewById(R.id.txttanggalnode2);
+        tgl3 = findViewById(R.id.txttanggalnode3);
         node1();
         node2();
         node3();
@@ -38,6 +41,7 @@ public class data_info extends AppCompatActivity {
                 getNode1 getNode1 = response.body();
                 txtkelembapan.setText(getNode1.getKelembapan());
                 txtsuhu.setText(getNode1.getSuhu());
+                tgl1.setText(getNode1.getTanggal());
             }
 
             @Override
@@ -57,6 +61,7 @@ public class data_info extends AppCompatActivity {
             public void onResponse(Call<getNode2> call, Response<getNode2> response) {
                 getNode2 getNode2 = response.body();
                 txthujan.setText(getNode2.getHujan());
+                tgl2.setText(getNode2.getTanggal());
             }
 
             @Override
@@ -75,6 +80,7 @@ public class data_info extends AppCompatActivity {
             public void onResponse(Call<getNode3> call, Response<getNode3> response) {
                 getNode3 getNode3 = response.body();
                 txtcahaya.setText(getNode3.getCahaya());
+                tgl3.setText(getNode3.getTanggal());
             }
 
             @Override
